@@ -22,27 +22,37 @@ const Calculator = ({ exchangeRates, exchangeState, setExchangeState }) => {
 
   const handleConvert = () => {
     const amountVal = exchangeState.amount;
-    const mid = exchangeRates[0].rates.find(
-      (element) => element.code === exchangeState.currencyFrom
-    ).mid;
-    const currencyCalculate = (amountVal * mid).toFixed(2);
-    setExchangeState((oldState) => ({
-      ...oldState,
-      result: currencyCalculate,
-    }));
+
+    if (amountVal > 0) {
+      const mid = exchangeRates[0].rates.find(
+        (element) => element.code === exchangeState.currencyFrom
+      ).mid;
+      const currencyCalculate = (amountVal * mid).toFixed(2);
+      setExchangeState((oldState) => ({
+        ...oldState,
+        result: currencyCalculate,
+      }));
+    } else {
+      alert("The number must be greater than zero.");
+    }
   };
 
   return (
     <section class="calculator">
       <form>
-        <span>Amount:</span>
+        <label for="enter">
+          <span>Amount:</span>
+        </label>
         <input
+          id="enter"
+          placeholder="Enter a number"
           type="number"
           class="amount"
           value={exchangeState.amount}
           onChange={handleAmountChange}
           min="0"
         />
+
         <span>Currency:</span>
         <select
           onChange={handleCurrencyFromChange}
