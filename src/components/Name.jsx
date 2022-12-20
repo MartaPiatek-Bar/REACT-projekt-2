@@ -1,6 +1,6 @@
 const Name = () => {
   return (
-    <section class="name">
+    <section className="name">
       <span>Exchange Rate App</span>
     </section>
   );

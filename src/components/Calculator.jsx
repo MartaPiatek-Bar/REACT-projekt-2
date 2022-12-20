@@ -38,16 +38,16 @@ const Calculator = ({ exchangeRates, exchangeState, setExchangeState }) => {
   };
 
   return (
-    <section class="calculator">
+    <section className="calculator">
       <form>
-        <label for="enter">
+        <label htmlFor="enter">
           <span>Amount:</span>
         </label>
         <input
           id="enter"
           placeholder="Enter a number"
           type="number"
-          class="amount"
+          className="amount"
           value={exchangeState.amount}
           onChange={handleAmountChange}
           min="0"
@@ -57,7 +57,7 @@ const Calculator = ({ exchangeRates, exchangeState, setExchangeState }) => {
         <select
           onChange={handleCurrencyFromChange}
           value={exchangeState.currencyFrom}
-          class="currency"
+          className="currency"
         >
           <option value="EUR">EUR - Euro</option>
           <option value="USD">USD - U.S. Dollar</option>
@@ -67,14 +67,14 @@ const Calculator = ({ exchangeRates, exchangeState, setExchangeState }) => {
         <select
           onChange={handleCurrencyToChange}
           value={exchangeState.currencyTo}
-          class="currency-to"
+          className="currency-to"
         >
           <option value="PLN">PLN - Polish zloty</option>
         </select>
         <button
           id="getCurrency"
           type="button"
-          class="btn"
+          className="btn"
           onClick={handleConvert}
         >
           Convert

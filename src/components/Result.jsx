@@ -1,7 +1,7 @@
 const Result = ({ exchangeState }) => {
   return (
     <section>
-      <p class="equals">
+      <p className="equals">
         Result: {`${exchangeState.result}${exchangeState.currencyTo}`}
       </p>
     </section>
